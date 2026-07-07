@@ -1,0 +1,15 @@
+Category,Name,Brand,Price,Unit,Available,Image
+Biscuits,Good Day Biscuits,Britannia,10,,TRUE,https://images.unsplash.com/photo-1590080874088-eec648c08259?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Rice & Dal,Sona Masuri Rice (Premium),Local,60,kg,TRUE,https://images.unsplash.com/photo-1586201375761-83865001e8ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Rice & Dal,Toor Dal,Tata Sampann,160,kg,TRUE,https://images.unsplash.com/photo-1585239103986-7a892b157b85?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Stationery,Single Line Notebook,Classmate,45,,FALSE,https://images.unsplash.com/photo-1531346878377-a54044dc81d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Dairy,Taaza Toned Milk,Amul,28,500ml,TRUE,https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Oil & Ghee,Sunflower Oil,Fortune,115,1 Ltr,TRUE,https://images.unsplash.com/photo-1629168621644-46c59b626e2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Chocolates,Dairy Milk Silk,Cadbury,85,,TRUE,https://images.unsplash.com/photo-1548689816-c399f954f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Snacks,Lays Classic Salted,Lay's,20,,TRUE,https://images.unsplash.com/photo-1566478989037-eec170784d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Soft Drinks,Thumbs Up,Coca Cola,40,750ml,TRUE,https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Spices,Turmeric Powder (Haldi),Everest,32,100g,TRUE,https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Cleaning,Vim Dishwash Gel,Vim,105,500ml,TRUE,https://images.unsplash.com/photo-1584820927498-cafe4c23f20a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Personal Care,Dettol Soap,Dettol,35,,TRUE,https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Stationery,Apsara Pencils (Pack of 10),Apsara,50,,FALSE,https://images.unsplash.com/photo-1581452906155-231a48c66bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80
+Baby Care,Pampers Baby Wipes,Pampers,99,,TRUE,https://images.unsplash.com/photo-1555252834-8c83a79d06b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80

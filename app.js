@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const setupScreen = document.getElementById('setupScreen');
     const sheetUrlInput = document.getElementById('sheetUrlInput');
     const saveSheetUrlBtn = document.getElementById('saveSheetUrlBtn');
+    const skipSetupBtn = document.getElementById('skipSetupBtn');
     
     const productsContainer = document.getElementById('productsContainer');
     const categoriesContainer = document.getElementById('categoriesContainer');
@@ -71,6 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a valid URL.');
         }
     });
+
+    if(skipSetupBtn) {
+        skipSetupBtn.addEventListener('click', () => {
+            localStorage.setItem('kiranaSheetUrl', 'products.csv');
+            window.location.reload();
+        });
+    }
 
     // Secret Reset Logic
     if(logoEl) {
