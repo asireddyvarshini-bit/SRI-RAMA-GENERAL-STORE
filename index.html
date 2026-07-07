@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- PapaParse for CSV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -44,14 +46,26 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h2>Welcome to Sri Rama Kirana Shop</h2>
-                <p>Groceries • Stationery • Daily Essentials</p>
+        <!-- Setup Screen -->
+        <div id="setupScreen" class="setup-screen hidden">
+            <div class="setup-card">
+                <h2>Admin Setup</h2>
+                <p>Paste your published Google Sheet <b>CSV Link</b> below to connect your products.</p>
+                <input type="url" id="sheetUrlInput" placeholder="https://docs.google.com/.../pub?output=csv">
+                <button id="saveSheetUrlBtn" class="btn btn-call-float" style="width: 100%; margin-top: 1rem; color: white;">Connect</button>
+                <p class="setup-help" style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">To change this later, click the shop logo 5 times.</p>
             </div>
-        </section>
+        </div>
+
+        <div id="mainContent">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h2>Welcome to Sri Rama Kirana Shop</h2>
+                    <p>Groceries • Stationery • Daily Essentials</p>
+                </div>
+            </section>
 
         <!-- Categories Section -->
         <section class="categories-section">
@@ -82,7 +96,7 @@
                 <p>Try searching with a different keyword or category.</p>
                 <button id="resetFiltersBtn" class="btn btn-outline">Reset Filters</button>
             </div>
-        </section>
+        </div>
     </main>
 
     <!-- Footer Section -->

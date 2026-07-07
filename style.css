@@ -622,3 +622,34 @@ a {
         font-size: 1.1rem;
     }
 }
+
+/* Setup Screen */
+.setup-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 2rem;
+}
+.setup-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+.setup-card input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 1rem;
+}
+.setup-card input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
