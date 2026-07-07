@@ -1,0 +1,149 @@
+[
+  {
+    "id": 1,
+    "name": "Good Day Biscuits",
+    "brand": "Britannia",
+    "category": "Biscuits",
+    "price": 10,
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1590080874088-eec648c08259?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Sona Masuri Rice (Premium)",
+    "brand": "Local",
+    "category": "Rice & Dal",
+    "price": 60,
+    "unit": "kg",
+    "isAvailable": true,
+    "lastUpdated": "2 days ago",
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e8ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Toor Dal",
+    "brand": "Tata Sampann",
+    "category": "Rice & Dal",
+    "price": 160,
+    "unit": "kg",
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1585239103986-7a892b157b85?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Single Line Notebook",
+    "brand": "Classmate",
+    "category": "Stationery",
+    "price": 45,
+    "isAvailable": false,
+    "lastUpdated": "1 week ago",
+    "image": "https://images.unsplash.com/photo-1531346878377-a54044dc81d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Taaza Toned Milk",
+    "brand": "Amul",
+    "category": "Dairy",
+    "price": 28,
+    "unit": "500ml",
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Sunflower Oil",
+    "brand": "Fortune",
+    "category": "Oil & Ghee",
+    "price": 115,
+    "unit": "1 Ltr",
+    "isAvailable": true,
+    "lastUpdated": "Yesterday",
+    "image": "https://images.unsplash.com/photo-1629168621644-46c59b626e2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Dairy Milk Silk",
+    "brand": "Cadbury",
+    "category": "Chocolates",
+    "price": 85,
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1548689816-c399f954f3dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Lays Classic Salted",
+    "brand": "Lay's",
+    "category": "Snacks",
+    "price": 20,
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1566478989037-eec170784d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 9,
+    "name": "Thumbs Up",
+    "brand": "Coca Cola",
+    "category": "Soft Drinks",
+    "price": 40,
+    "unit": "750ml",
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 10,
+    "name": "Turmeric Powder (Haldi)",
+    "brand": "Everest",
+    "category": "Spices",
+    "price": 32,
+    "unit": "100g",
+    "isAvailable": true,
+    "lastUpdated": "3 days ago",
+    "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 11,
+    "name": "Vim Dishwash Gel",
+    "brand": "Vim",
+    "category": "Cleaning",
+    "price": 105,
+    "unit": "500ml",
+    "isAvailable": true,
+    "lastUpdated": "Yesterday",
+    "image": "https://images.unsplash.com/photo-1584820927498-cafe4c23f20a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 12,
+    "name": "Dettol Soap",
+    "brand": "Dettol",
+    "category": "Personal Care",
+    "price": 35,
+    "isAvailable": true,
+    "lastUpdated": "Today",
+    "image": "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 13,
+    "name": "Apsara Pencils (Pack of 10)",
+    "brand": "Apsara",
+    "category": "Stationery",
+    "price": 50,
+    "isAvailable": false,
+    "lastUpdated": "1 week ago",
+    "image": "https://images.unsplash.com/photo-1581452906155-231a48c66bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  },
+  {
+    "id": 14,
+    "name": "Pampers Baby Wipes",
+    "brand": "Pampers",
+    "category": "Baby Care",
+    "price": 99,
+    "isAvailable": true,
+    "lastUpdated": "2 days ago",
+    "image": "https://images.unsplash.com/photo-1555252834-8c83a79d06b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+  }
+]

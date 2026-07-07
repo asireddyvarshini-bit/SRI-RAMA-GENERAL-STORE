@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Rama Kirana Shop | Groceries & Daily Essentials</title>
+    <meta name="description" content="Digital catalog for Sri Rama Kirana Shop. Browse groceries, stationery, and daily essentials easily.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-container">
+            <div class="shop-info">
+                <div class="logo">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+                <div class="details">
+                    <h1>SRI RAMA KIRANA SHOP</h1>
+                    <p><i class="fa-solid fa-location-dot"></i> Jagathgiri Gutta, Road No. 8, C Block</p>
+                </div>
+            </div>
+            <div class="contact-buttons">
+                <a href="tel:9059148449" class="btn btn-call"><i class="fa-solid fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/919059148449" target="_blank" class="btn btn-whatsapp-header"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <button id="clearSearch" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h2>Welcome to Sri Rama Kirana Shop</h2>
+                <p>Groceries • Stationery • Daily Essentials</p>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <div class="categories-wrapper" id="categoriesContainer">
+                <!-- Categories will be injected here via JS -->
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="products-header">
+                <h3 id="currentCategoryTitle">All Products</h3>
+                <span class="product-count" id="productCount">Loading...</span>
+            </div>
+            
+            <div id="loadingIndicator" class="loading">
+                <div class="spinner"></div>
+                <p>Loading catalog...</p>
+            </div>
+
+            <div class="products-grid" id="productsContainer">
+                <!-- Products will be injected here via JS -->
+            </div>
+
+            <div id="emptyState" class="empty-state hidden">
+                <i class="fa-solid fa-box-open"></i>
+                <h3>No products found</h3>
+                <p>Try searching with a different keyword or category.</p>
+                <button id="resetFiltersBtn" class="btn btn-outline">Reset Filters</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fa-solid fa-store fa-2x"></i>
+                <h3>SRI RAMA KIRANA SHOP</h3>
+            </div>
+            <div class="footer-details">
+                <p><i class="fa-solid fa-location-dot"></i> Jagathgiri Gutta, Road No. 8, C Block</p>
+                <p><i class="fa-solid fa-phone"></i> +91 9059148449</p>
+                <p><i class="fa-solid fa-clock"></i> Working Hours: 7:00 AM - 10:00 PM</p>
+            </div>
+            <div class="footer-disclaimer">
+                <p><i class="fa-solid fa-circle-info"></i> Prices may change without prior notice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fab-container">
+        <button id="scrollTopBtn" class="fab btn-top hidden" aria-label="Scroll to top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <a href="https://wa.me/919059148449" target="_blank" class="fab btn-whatsapp" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:9059148449" class="fab btn-call-float" aria-label="Call">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <!-- Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
