@@ -47,15 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize App
     function init() {
-        // Always hide setup screen and show products directly
+        // Always show products immediately - no setup screen needed
         setupScreen.classList.add('hidden');
         mainContent.classList.remove('hidden');
-        
-        // Load from Google Sheet if saved, otherwise use local products.csv
-        const dataUrl = localStorage.getItem('kiranaSheetUrl') || 'products.csv';
-        
         renderCategories();
-        fetchProductsFromCSV(dataUrl);
+        
+        // Use Google Sheet URL if saved, otherwise load from local products.csv
+        const savedUrl = localStorage.getItem('kiranaSheetUrl');
+        fetchProductsFromCSV(savedUrl || 'products.csv');
+
         setupEventListeners();
     }
 
