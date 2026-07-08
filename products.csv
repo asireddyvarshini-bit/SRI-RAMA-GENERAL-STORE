@@ -1,5 +1,6 @@
 Category,Name,Brand,Price,Unit,Available,Image
 Biscuits,Good Day Biscuits,Britannia,10,,TRUE,images/good_day_biscuits.jpg
+Biscuits,Krackjack Biscuits,Parle,10,,TRUE,images/krackjack_biscuits.jpg
 Rice & Dal,Sona Masuri Rice (Premium),Local,60,kg,TRUE,images/sona_masuri_rice_premium.jpg
 Rice & Dal,Toor Dal,Tata Sampann,160,kg,TRUE,images/toor_dal.jpg
 Stationery,Single Line Notebook,Classmate,45,,FALSE,images/single_line_notebook.jpg
