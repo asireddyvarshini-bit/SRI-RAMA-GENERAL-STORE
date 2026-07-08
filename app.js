@@ -17,16 +17,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetFiltersBtn = document.getElementById('resetFiltersBtn');
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     
-    // Secret Reset (Click logo 5 times)
     const logoEl = document.querySelector('.logo');
     let logoClickCount = 0;
     
-    // State
     let products = [];
     let currentCategory = 'All';
     let searchQuery = '';
 
-    // Categories List (from requirements)
+    // Emoji icons for each category (used when no image is provided)
+    const categoryEmojis = {
+        'grocery': '🛒',
+        'rice & dal': '🍚',
+        'oil & ghee': '🫒',
+        'biscuits': '🍪',
+        'chocolates': '🍫',
+        'snacks': '🥨',
+        'soft drinks': '🥤',
+        'dairy': '🥛',
+        'spices': '🌶️',
+        'cleaning': '🧹',
+        'personal care': '🧼',
+        'stationery': '📒',
+        'household': '🏠',
+        'baby care': '👶'
+    };
+
     const categories = [
         { name: 'All Products', value: 'All', icon: 'fa-table-cells' },
         { name: 'Grocery', value: 'Grocery', icon: 'fa-basket-shopping' },
@@ -45,54 +60,53 @@ document.addEventListener('DOMContentLoaded', () => {
         { name: 'Baby Care', value: 'Baby Care', icon: 'fa-baby' }
     ];
 
-    // Initialize App
+    // ========== INIT ==========
     function init() {
-        // Always show products immediately - no setup screen needed
         setupScreen.classList.add('hidden');
         mainContent.classList.remove('hidden');
         renderCategories();
         
-        // Use Google Sheet URL if saved, otherwise load from local products.csv
         const savedUrl = localStorage.getItem('kiranaSheetUrl');
         fetchProductsFromCSV(savedUrl || 'products.csv');
-
         setupEventListeners();
     }
 
-    // Save URL and Start
-    saveSheetUrlBtn.addEventListener('click', () => {
-        const url = sheetUrlInput.value.trim();
-        if (url && url.includes('http')) {
-            localStorage.setItem('kiranaSheetUrl', url);
-            window.location.reload();
-        } else {
-            alert('Please enter a valid URL.');
-        }
-    });
+    // ========== SETUP SCREEN ==========
+    if (saveSheetUrlBtn) {
+        saveSheetUrlBtn.addEventListener('click', () => {
+            const url = sheetUrlInput.value.trim();
+            if (url && url.includes('http')) {
+                localStorage.setItem('kiranaSheetUrl', url);
+                window.location.reload();
+            } else {
+                alert('Please enter a valid URL.');
+            }
+        });
+    }
 
-    if(skipSetupBtn) {
+    if (skipSetupBtn) {
         skipSetupBtn.addEventListener('click', () => {
             localStorage.setItem('kiranaSheetUrl', 'products.csv');
             window.location.reload();
         });
     }
 
-    // Secret Reset Logic
-    if(logoEl) {
+    // Secret Reset: click logo 5 times
+    if (logoEl) {
         logoEl.addEventListener('click', () => {
             logoClickCount++;
             if (logoClickCount >= 5) {
-                if(confirm("Do you want to disconnect the spreadsheet and reset the URL?")) {
+                if (confirm("Reset spreadsheet URL?")) {
                     localStorage.removeItem('kiranaSheetUrl');
                     window.location.reload();
                 }
                 logoClickCount = 0;
             }
-            setTimeout(() => { logoClickCount = 0; }, 3000); // reset count after 3 seconds
+            setTimeout(() => { logoClickCount = 0; }, 3000);
         });
     }
 
-    // Fetch Products Data via PapaParse
+    // ========== FETCH & PARSE CSV ==========
     function fetchProductsFromCSV(csvUrl) {
         showLoading(true);
         
@@ -102,42 +116,42 @@ document.addEventListener('DOMContentLoaded', () => {
             skipEmptyLines: true,
             complete: function(results) {
                 try {
-                    // Map CSV data to product objects
-                    products = results.data.map((row, index) => {
-                        // Check availability string
-                        const availStr = (row['Available'] || '').toString().toLowerCase().trim();
-                        const isAvailable = availStr === 'true' || availStr === 'yes' || availStr === '1' || availStr === '';
+                    products = results.data
+                        .filter(row => row['Name'] && row['Name'].trim() !== '')
+                        .map((row, index) => {
+                            const availStr = (row['Available'] || 'TRUE').toString().toLowerCase().trim();
+                            const isAvailable = (availStr === 'true' || availStr === 'yes' || availStr === '1');
+                            const imageVal = (row['Image'] || '').trim();
 
-                        return {
-                            id: index + 1,
-                            category: row['Category'] || 'Other',
-                            name: row['Name'] || 'Unnamed Product',
-                            brand: row['Brand'] || '',
-                            price: parseFloat(row['Price']) || 0,
-                            unit: row['Unit'] || '',
-                            isAvailable: isAvailable,
-                            lastUpdated: 'Live',
-                            image: row['Image'] || 'https://images.unsplash.com/photo-1601598851547-4302969d0614?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80' // default placeholder
-                        };
-                    });
+                            return {
+                                id: index + 1,
+                                category: (row['Category'] || 'Other').trim(),
+                                name: (row['Name'] || 'Unnamed').trim(),
+                                brand: (row['Brand'] || '').trim(),
+                                price: parseFloat(row['Price']) || 0,
+                                unit: (row['Unit'] || '').trim(),
+                                isAvailable: isAvailable,
+                                image: imageVal
+                            };
+                        });
                     
                     showLoading(false);
                     filterAndRenderProducts();
                 } catch (err) {
-                    console.error("Error mapping CSV data:", err);
+                    console.error("Error:", err);
                     showLoading(false);
-                    productsContainer.innerHTML = '<p class="error-msg">Error reading spreadsheet data. Check your column headers.</p>';
+                    productsContainer.innerHTML = '<p style="text-align:center;padding:2rem;color:red;">Error reading data. Check CSV headers.</p>';
                 }
             },
             error: function(error) {
-                console.error("Error fetching CSV:", error);
+                console.error("Fetch error:", error);
                 showLoading(false);
-                productsContainer.innerHTML = '<p class="error-msg">Failed to load from Google Sheets. Ensure it is published as CSV.</p>';
+                productsContainer.innerHTML = '<p style="text-align:center;padding:2rem;color:red;">Failed to load products.</p>';
             }
         });
     }
 
-    // Render Categories
+    // ========== RENDER CATEGORIES ==========
     function renderCategories() {
         categoriesContainer.innerHTML = '';
         categories.forEach(category => {
@@ -155,12 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render Products
+    // ========== RENDER PRODUCTS ==========
     function filterAndRenderProducts() {
         let filtered = products;
 
         if (currentCategory !== 'All') {
-            filtered = filtered.filter(p => p.category.toLowerCase().includes(currentCategory.toLowerCase()));
+            filtered = filtered.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
         }
 
         if (searchQuery.trim() !== '') {
@@ -186,15 +200,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.animation = `fadeIn 0.3s ease forwards ${index * 0.05}s`;
                 card.style.opacity = '0';
                 
-                const availabilityClass = product.isAvailable ? 'badge-available' : 'badge-out';
-                const availabilityText = product.isAvailable ? 'Available' : 'Out of Stock';
+                const availClass = product.isAvailable ? 'badge-available' : 'badge-out';
+                const availText = product.isAvailable ? 'Available' : 'Out of Stock';
                 const unitText = product.unit ? ` / ${product.unit}` : '';
                 
+                // Use image if provided, otherwise show a big emoji
+                let imageHTML;
+                if (product.image && product.image.length > 0) {
+                    imageHTML = `
+                        <div class="product-image-container">
+                            <span class="availability-badge ${availClass}">${availText}</span>
+                            <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy"
+                                 onerror="this.style.display='none'; this.parentElement.querySelector('.emoji-fallback').style.display='flex';">
+                            <div class="emoji-fallback" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; align-items:center; justify-content:center; font-size:4rem; background:#f9fafb;">
+                                ${getEmoji(product.category)}
+                            </div>
+                        </div>`;
+                } else {
+                    imageHTML = `
+                        <div class="product-image-container">
+                            <span class="availability-badge ${availClass}">${availText}</span>
+                            <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:4rem; background:#f9fafb;">
+                                ${getEmoji(product.category)}
+                            </div>
+                        </div>`;
+                }
+                
                 card.innerHTML = `
-                    <div class="product-image-container">
-                        <span class="availability-badge ${availabilityClass}">${availabilityText}</span>
-                        <img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy">
-                    </div>
+                    ${imageHTML}
                     <div class="product-details">
                         <span class="product-brand">${product.brand}</span>
                         <h4 class="product-name">${product.name}</h4>
@@ -202,7 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div>
                                 <span class="product-price">₹${product.price}</span><span style="font-size: 0.75rem; color: #6b7280;">${unitText}</span>
                             </div>
-                            <span class="product-updated">Updated: ${product.lastUpdated}</span>
                         </div>
                     </div>
                 `;
@@ -211,21 +243,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event Listeners
+    function getEmoji(category) {
+        return categoryEmojis[category.toLowerCase()] || '📦';
+    }
+
+    // ========== EVENT LISTENERS ==========
     function setupEventListeners() {
-        if(searchInput) {
+        if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 searchQuery = e.target.value;
-                if (searchQuery.length > 0) {
-                    clearSearchBtn.classList.remove('hidden');
-                } else {
-                    clearSearchBtn.classList.add('hidden');
-                }
+                clearSearchBtn.classList.toggle('hidden', searchQuery.length === 0);
                 filterAndRenderProducts();
             });
         }
 
-        if(clearSearchBtn) {
+        if (clearSearchBtn) {
             clearSearchBtn.addEventListener('click', () => {
                 searchInput.value = '';
                 searchQuery = '';
@@ -235,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        if(resetFiltersBtn) {
+        if (resetFiltersBtn) {
             resetFiltersBtn.addEventListener('click', () => {
                 searchInput.value = '';
                 searchQuery = '';
@@ -243,29 +275,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentCategory = 'All';
                 currentCategoryTitle.textContent = 'All Products';
                 document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
-                if(document.querySelector('.category-chip')) {
-                   document.querySelector('.category-chip').classList.add('active'); 
-                }
+                const firstChip = document.querySelector('.category-chip');
+                if (firstChip) firstChip.classList.add('active');
                 filterAndRenderProducts();
             });
         }
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTopBtn.classList.remove('hidden');
-            } else {
-                scrollTopBtn.classList.add('hidden');
-            }
+            scrollTopBtn.classList.toggle('hidden', window.scrollY <= 300);
         });
 
-        if(scrollTopBtn) {
+        if (scrollTopBtn) {
             scrollTopBtn.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
     }
 
-    // Helpers
+    // ========== HELPERS ==========
     function showLoading(show) {
         if (show) {
             loadingIndicator.classList.remove('hidden');
@@ -277,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Inject fadeIn animation
     const style = document.createElement('style');
     style.innerHTML = `
         @keyframes fadeIn {
@@ -286,6 +314,5 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
-    // Run app
     init();
 });

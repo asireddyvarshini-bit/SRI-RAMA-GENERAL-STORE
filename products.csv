@@ -1,16 +1,16 @@
 Category,Name,Brand,Price,Unit,Available,Image
-Biscuits,Good Day Biscuits,Britannia,10,,TRUE,images/good_day_biscuits.jpg
-Biscuits,Krackjack Biscuits,Parle,10,,TRUE,images/krackjack_biscuits.jpg
-Rice & Dal,Sona Masuri Rice (Premium),Local,60,kg,TRUE,images/sona_masuri_rice_premium.jpg
-Rice & Dal,Toor Dal,Tata Sampann,160,kg,TRUE,images/toor_dal.jpg
-Stationery,Single Line Notebook,Classmate,45,,FALSE,images/single_line_notebook.jpg
-Dairy,Taaza Toned Milk,Amul,28,500ml,TRUE,images/taaza_toned_milk.jpg
-Oil & Ghee,Sunflower Oil,Fortune,115,1 Ltr,TRUE,images/sunflower_oil.jpg
-Chocolates,Dairy Milk Silk,Cadbury,85,,TRUE,images/dairy_milk_silk.jpg
-Snacks,Lays Classic Salted,Lay's,20,,TRUE,images/lays_classic_salted.jpg
-Soft Drinks,Thumbs Up,Coca Cola,40,750ml,TRUE,images/thumbs_up.jpg
-Spices,Turmeric Powder (Haldi),Everest,32,100g,TRUE,images/turmeric_powder_haldi.jpg
-Cleaning,Vim Dishwash Gel,Vim,105,500ml,TRUE,images/vim_dishwash_gel.jpg
-Personal Care,Dettol Soap,Dettol,35,,TRUE,images/dettol_soap.jpg
-Stationery,Apsara Pencils (Pack of 10),Apsara,50,,FALSE,images/apsara_pencils_pack_of_10.jpg
-Baby Care,Pampers Baby Wipes,Pampers,99,,TRUE,images/pampers_baby_wipes.jpg
+Biscuits,Good Day Biscuits,Britannia,10,,TRUE,images/good_day_biscuits.png
+Biscuits,Krackjack Biscuits,Parle,10,,TRUE,images/krackjack_biscuits.png
+Rice & Dal,Sona Masuri Rice,Local,60,kg,TRUE,images/sona_masuri_rice.png
+Rice & Dal,Toor Dal,Tata Sampann,160,kg,TRUE,images/toor_dal.png
+Stationery,Single Line Notebook,Classmate,45,,FALSE,images/notebook.png
+Dairy,Taaza Toned Milk,Amul,28,500ml,TRUE,
+Oil & Ghee,Sunflower Oil,Fortune,115,1 Ltr,TRUE,
+Chocolates,Dairy Milk Silk,Cadbury,85,,TRUE,
+Snacks,Lays Classic Salted,Lays,20,,TRUE,
+Soft Drinks,Thumbs Up,Coca Cola,40,750ml,TRUE,
+Spices,Turmeric Powder,Everest,32,100g,TRUE,
+Cleaning,Vim Dishwash Gel,Vim,105,500ml,TRUE,
+Personal Care,Dettol Soap,Dettol,35,,TRUE,
+Stationery,Apsara Pencils Pack,Apsara,50,,FALSE,
+Baby Care,Pampers Baby Wipes,Pampers,99,,TRUE,
