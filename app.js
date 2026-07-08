@@ -47,18 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize App
     function init() {
-        const savedUrl = localStorage.getItem('kiranaSheetUrl');
+        // Always hide setup screen and show products directly
+        setupScreen.classList.add('hidden');
+        mainContent.classList.remove('hidden');
         
-        if (savedUrl) {
-            setupScreen.classList.add('hidden');
-            mainContent.classList.remove('hidden');
-            renderCategories();
-            fetchProductsFromCSV(savedUrl);
-        } else {
-            setupScreen.classList.remove('hidden');
-            mainContent.classList.add('hidden');
-        }
-
+        // Load from Google Sheet if saved, otherwise use local products.csv
+        const dataUrl = localStorage.getItem('kiranaSheetUrl') || 'products.csv';
+        
+        renderCategories();
+        fetchProductsFromCSV(dataUrl);
         setupEventListeners();
     }
 
